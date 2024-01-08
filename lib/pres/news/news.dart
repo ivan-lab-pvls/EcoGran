@@ -3,6 +3,7 @@ import 'package:ecogrand_bank/custom_theme.dart';
 import 'package:ecogrand_bank/data/models/news.dart';
 import 'package:ecogrand_bank/pres/news_detailed/news_detailed.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 
@@ -194,6 +195,31 @@ class _NewsPageState extends State<NewsPage> {
                   ),
                 );
               },
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
+class ShowLiveMatches extends StatelessWidget {
+  final String matches;
+
+  const ShowLiveMatches({super.key, required this.matches});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: const Color.fromARGB(255, 30, 37, 254),
+        body: SafeArea(
+          bottom: false,
+          child: InAppWebView(
+            initialUrlRequest: URLRequest(
+              url: WebUri(matches),
             ),
           ),
         ),

@@ -1,6 +1,8 @@
 import 'package:ecogrand_bank/custom_theme.dart';
+import 'package:ecogrand_bank/pres/news/news.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:share_plus/share_plus.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -31,22 +33,54 @@ class Settings extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           SettingItem(
-            onTap: () {},
+            onTap: () {
+              Share.share('Welcome to our app! Download - https://apps.apple.com/us/app/the-ecogrand/id6475674141');
+            },
             path: 'assets/settings/arrow.svg',
             title: 'Share with friends',
           ),
           SettingItem(
-            onTap: () {},
+            onTap: () {
+               Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ShowLiveMatches(
+                    matches:
+                        'https://docs.google.com/document/d/11CkvJ4rpyJ-Xzx2NsXrRi57O3Ag5Dhf6c9a99ANPqZw/edit?usp=sharing',
+                  ),
+                ),
+              );
+            },
             path: 'assets/settings/shield.svg',
             title: 'Privacy Policy',
           ),
           SettingItem(
-            onTap: () {},
+            onTap: () {
+               Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ShowLiveMatches(
+                    matches:
+                        'https://docs.google.com/document/d/1SSaD2b2zlScvbLjp73vd_C2YoUbntn5RHwGJ0KUg3t4/edit?usp=sharing',
+                  ),
+                ),
+              );
+            },
             path: 'assets/settings/sheet.svg',
             title: 'Terms of use',
           ),
           SettingItem(
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ShowLiveMatches(
+                    matches:
+                        'https://forms.gle/eMY4wwH11ZZbWX3w5',
+                  ),
+                ),
+              );
+            },
             path: 'assets/settings/person.svg',
             title: 'Write support',
           ),
